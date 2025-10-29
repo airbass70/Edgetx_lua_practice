@@ -1,0 +1,7 @@
+local function init()
+
+local function run()
+  x=loadScript(/SCRIPTS7TELEMETRY/data)
+  lcd.drawText(x)
+
+return return {run=run, init=init}
