@@ -1,7 +1,12 @@
+local x=loadScript("/SCRIPTS/TELEMETRY/HALLO/data",t)()
+
 local function init()
+end
 
 local function run()
-  x=loadScript(/SCRIPTS7TELEMETRY/data)
-  lcd.drawText(x)
+  lcd.clear()  
+  lcd.drawText(10,10,type(x))
+  lcd.drawText(10,30,x)
+end
 
-return return {run=run, init=init}
+return {run=run, init=init}
