@@ -1,4 +1,4 @@
-local x=loadScript("/SCRIPTS/TELEMETRY/HALLO/data",t)()
+local x=loadScript("/SCRIPTS/TELEMETRY/HALLO/data")()
 
 local function init()
 end
