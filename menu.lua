@@ -1,4 +1,4 @@
-local script_folder = "/SD/SCRIPTS/TELEMETRY"
+local script_folder = "/SD/SCRIPTS/TELEMETRY/MYPRACTICE"  
 local NumberOfOptions= 4
 local currentOption = 1
 local SelectionIsDone = false
@@ -24,9 +24,11 @@ local function run(event)
         drawMenuScreen()
         if event == EVT_ROT_BREAK then
             lcd.clear()
-            lcd.drawText(10,10,"hai scelto"..currentOption)
+            firstRun = true --mi serve al posto di init negli script che carico dalla cartella MYPRACTICE
             SelectionIsDone = true
-        end            
+        end
+    elseif SelectionIsDone then
+        lcd.drawText(10,10,"hai scelto"..currentOption)        
     end
 end
 
