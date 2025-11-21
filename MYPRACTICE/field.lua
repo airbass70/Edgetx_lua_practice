@@ -17,9 +17,9 @@ if firstRun then
 end
 
 
-t1 = getTime()
-ThrVal = getValue(ThrId)	-- ottiene il valore di thr
-Speed=math.abs(ThrVal)/10000	--step per centesimo di secondo
+local t1 = getTime()
+local ThrVal = getValue(ThrId)	-- ottiene il valore di thr
+local Speed=math.abs(ThrVal)/10000	--step per centesimo di secondo
 if ThrVal >0 and t1>t0+(1/Speed) then
   a=a+1
   t0=t1
@@ -29,9 +29,9 @@ elseif ThrVal <0 and t1>t0+(1/Speed) then
 end
   
 lcd.clear()
-field_id = getFieldInfo(a) and getFieldInfo(a).id or -1			--uguale a getFieldInfo(a)["id"]       ---	 	
-field_name = getFieldInfo(a) and getFieldInfo(a).name or "empty"	--sintactic sugar per dati tipo record ---
-field_desc = getFieldInfo(a) and getFieldInfo(a).desc or "empty"	
+local field_id = getFieldInfo(a) and getFieldInfo(a).id or -1			--uguale a getFieldInfo(a)["id"]       ---	 	
+local field_name = getFieldInfo(a) and getFieldInfo(a).name or "empty"	--sintactic sugar per dati tipo record ---
+local field_desc = getFieldInfo(a) and getFieldInfo(a).desc or "empty"	
 
 lcd.drawText(10,10,"id:",SMLSIZE)
 lcd.drawText(60,10,"val:",SMLSIZE)
