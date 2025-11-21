@@ -9,7 +9,7 @@ Usare lo stick thr su e giu per cambiare l'indice
 Ogni tanto ci sono delle posizioni vuote.
 --]]
 
-if not firstRun then
+if firstRun then
   Field_id			--metaindice del campo
   Field_name		--nome del campo
   field_desc		--descrizione del campo
