@@ -19,8 +19,8 @@ if firstRun then
     arrowResized[i]=arrowPoints[i]*arrowScale
   end
   firstRun = false
-
 end
+
 local bearing = getValue(RudId)/1024*180
 local rndBearing=math.floor(bearing+180)   --arrotonda all'intero più vicino. Solo per numeri positivi.
 local theta=math.rad(rndBearing)
