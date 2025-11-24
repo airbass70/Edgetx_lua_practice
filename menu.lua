@@ -31,8 +31,7 @@ local function run(event)
         end
     elseif SelectionIsDone then
         loadScript(script_folder.."/"..myscripts[currentOption])() 
-        if event == EVT_EXIT_BREAK then SelectionIsDone = false
-    end
+        if event == EVT_EXIT_BREAK then SelectionIsDone = false end
 end
 
 return {run=run}
