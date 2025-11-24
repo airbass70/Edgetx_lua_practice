@@ -1,7 +1,7 @@
 local script_folder = "/SCRIPTS/TELEMETRY/MYPRACTICE"  
 local NumberOfOptions= 4
 local currentOption = 1
-local SelectionIsDone = false
+SelectionIsDone = false
 local myscripts={}
 myscripts[2]="field.lua"
 
