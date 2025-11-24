@@ -41,3 +41,5 @@ lcd.drawNumber(40,10,field_id,SMLSIZE)
 lcd.drawText(40,30,field_name,SMLSIZE)
 lcd.drawText(40,50,field_desc,SMLSIZE)
 lcd.drawText(90,10,tostring(getValue(field_id)))
+
+if event == EVT_EXIT_BREAK then SelectionIsDone = false
