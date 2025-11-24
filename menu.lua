@@ -1,7 +1,7 @@
 local script_folder = "/SCRIPTS/TELEMETRY/MYPRACTICE"  
 local NumberOfOptions= 4
 local currentOption = 1
-SelectionIsDone = false
+local SelectionIsDone = false
 local myscripts={}
 myscripts[2]="field.lua"
 
@@ -30,7 +30,8 @@ local function run(event)
             SelectionIsDone = true
         end
     elseif SelectionIsDone then
-        loadScript(script_folder.."/"..myscripts[currentOption])()        
+        loadScript(script_folder.."/"..myscripts[currentOption])() 
+        if event == EVT_EXIT_BREAK then SelectionIsDone = false
     end
 end
 
