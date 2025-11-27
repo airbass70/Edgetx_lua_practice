@@ -1,7 +1,7 @@
 local script_folder = "/SCRIPTS/TELEMETRY/MYPRACTICE"  
-local NumberOfOptions= 4
+local numberOfOptions= 4
 local currentOption = 1
-local SelectionIsDone = false
+local selectionIsDone = false
 local myscripts={}
 myscripts[2]="field.lua"
 
@@ -14,8 +14,10 @@ local function drawMenuScreen()
     lcd.drawText(1,36,"4: paperino",(currentOption == 4 and INVERS or 0))
 end
 
+local executeScript=loadScript(script_folder.."/"..myscripts[currentOption])()
+
 local function run(event)
-    if not SelectionIsDone then
+    if not selectionIsDone then
         if event == EVT_ROT_RIGHT then
             currentOption=currentOption + 1
             if currentOption>NumberOfOptions then currentOption=1 end
@@ -27,10 +29,10 @@ local function run(event)
         if event == EVT_ROT_BREAK then
             lcd.clear()
             firstRun = true --mi serve al posto di init negli script che carico dalla cartella MYPRACTICE
-            SelectionIsDone = true
+            selectionIsDone = true
         end
-    elseif SelectionIsDone then
-        loadScript(script_folder.."/"..myscripts[currentOption])() 
+    elseif selectionIsDone then
+        executeScript()
         if event == EVT_EXIT_BREAK then SelectionIsDone = false end
     end
 end
