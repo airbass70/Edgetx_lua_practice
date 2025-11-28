@@ -9,11 +9,9 @@ Noale
 
 local R = 6371  --Radius of the earth in M
 
-local waypoint={}
-waypoint.lat=45.493  waypoint.lon=12.109
+local waypoint={["lat"]=45.493, ["lon"]=12.109}
 
-local position={}
-position.lat=45.55   position.lon=12.07
+local position={["lat"]=45.55, ["lon"]=12.07}
 
 local source={}
 source.ail=getFieldInfo("ail")  source.ele=getFieldInfo("ele")
