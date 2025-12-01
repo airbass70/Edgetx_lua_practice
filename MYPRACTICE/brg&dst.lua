@@ -26,11 +26,8 @@ local function getPos()       -- input per testare il programma al posto delle v
   local dt=t-t0
   position.lat=position.lat+lat_rate*dt
   position.lon=position.lon+lon_rate*dt
-  local currentPos={}
-  currentPos.lat=position.lat
-  currentPos.lon=position.lon
   t0=t
-  return currentPos
+  return position
 end
 
 local function getBrg_Dst(lat1,lon1,lat2,lon2)
