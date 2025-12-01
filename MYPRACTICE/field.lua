@@ -15,15 +15,14 @@ return function()
   local field_id = getFieldInfo(a) and getFieldInfo(a).id or -1			--uguale a getFieldInfo(a)["id"]       ---	 
   local field_name = getFieldInfo(a) and getFieldInfo(a).name or "empty"	--sintactic sugar per dati tipo record ---
   local field_desc = getFieldInfo(a) and getFieldInfo(a).desc or "empty"
-  
+  local value=getValue(field_id)
+  local firstLine = string.format("Field id: %s    value: %s",field_id,value)
+  local secondLine = string.format("Name: %s",field_name)
+  local thirdLine = string.format("Desc: %s", field_desc)
+
   lcd.clear()
-  lcd.drawText(10,10,"id:",SMLSIZE)
-  lcd.drawText(60,10,"val:",SMLSIZE)
-  lcd.drawText(10,30,"name:",SMLSIZE)
-  lcd.drawText(10,50,"Desc:",SMLSIZE)
-  lcd.drawNumber(40,10,field_id,SMLSIZE)
-  lcd.drawText(40,30,field_name,SMLSIZE)
-  lcd.drawText(40,50,field_desc,SMLSIZE)
-  lcd.drawText(90,10,tostring(getValue(field_id)))
+  lcd.drawText(10,10,firstLine,SMLSIZE)  
+  lcd.drawText(10,30,secondLine)
+  lcd.drawText(10,50,thirdLine)
 end
 
