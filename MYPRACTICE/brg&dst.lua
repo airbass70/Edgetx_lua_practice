@@ -53,10 +53,17 @@ local function getBrg_Dst(lat1,lon1,lat2,lon2)
 end
 
 return function()
-  local dist = getBrg_Dst(getPos().lat,getPos().lon,waypoint.lat,waypoint.lon).distance
-    lcd.clear()
-  lcd.drawText(10,1,string.format("WayPt %.3f  %.3f",tostring(waypoint.lat),tostring(waypoint.lon)), 0)
+  local dst = getBrg_Dst(getPos().lat,getPos().lon,waypoint.lat,waypoint.lon).distance
+  local brg = getBrg_Dst(getPos().lat,getPos().lon,waypoint.lat,waypoint.lon).bearing
+  local scale = dst >= 1000 and 500 or 50
+
+  lcd.clear()
+  lcd.drawText(10,1,string.format("WayPt   %.3f     %.3f",tostring(waypoint.lat),tostring(waypoint.lon)), 0)
   lcd.drawText(10,20,string.format("%d°",tostring(getBrg_Dst(getPos().lat,getPos().lon,waypoint.lat,waypoint.lon).bearing)),0)
-  lcd.drawText(10,40,dist >= 1000 and string.format("%.2f km",tostring(dist/1000)) or string.format("%d m",tostring(dist)), 0)
-  lcd.drawText(10,55,string.format("Pos %.3f %.3f",tostring(getPos().lat),tostring(getPos().lon)), 0)
+  lcd.drawText(10,40,dst >= 1000 and string.format("%.2f km",tostring(dst/1000)) or string.format("%d m",tostring(dst)), 0)
+  lcd.drawText(10,55,string.format("Pos       %.3f    %.3f",tostring(getPos().lat),tostring(getPos().lon)), 0)
+
+  lcd.drawRectangle(50,12,60,40)
+  lcd.drawFilledRectangle(80 - dst/scale * math.sin(brg * math.pi/180), 32 + dst/scale * math.cos(brg * math.pi/180), 3, 3)
+  lcd.drawLine(80-2, 32, 80+2, 32, SOLID, 0) lcd.drawLine(80, 32-2, 80, 32+2, SOLID, 0)
 end
